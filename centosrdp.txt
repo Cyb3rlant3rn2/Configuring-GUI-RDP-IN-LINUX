@@ -1,0 +1,16 @@
+
+#!/bin/bash
+
+sudo yum -y update
+sudo yum -y group install "GNOME Desktop" "Graphical Administration Tools"
+sudo ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
+sudo yum -y install epel-release
+sudo yum -y update
+sudo yum clean all
+yum -y install xrdp tigervnc-server 
+chcon --type=bin_t /usr/sbin/xrdp
+chcon --type=bin_t /usr/sbin/xrdp-sesman
+firewall-cmd --permanent --zone=public --add-port=3389/tcp
+sudo firewall-cmd --reload
+systemctl enable xrdp
+
