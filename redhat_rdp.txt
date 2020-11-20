@@ -1,0 +1,8 @@
+      yum grouplist
+      yum group install "Server with GUI"
+      yum install xrdp tigervnc-server
+      yum install http://mirror.centos.org/centos/7/extras/x86_64/Packages/epel-release-7-11.noarch.rpm
+      yum install xrdp tigervnc-server
+      ssystemctl start xrdp
+      systemctl start xrdp
+      systemctl enable xrdp
